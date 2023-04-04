@@ -18,3 +18,20 @@ p fibs(0)
 p fibs(1)
 p fibs(2)
 p fibs(8)
+
+def fibs_rec(num, accum = [0, 1])
+  if num.zero?
+    accum.pop
+    accum
+  elsif num == 1
+    accum
+  else
+    accum << accum[-2] + accum[-1]
+    fibs_rec(num - 1, accum)
+  end
+end
+
+p fibs_rec(0)
+p fibs_rec(1)
+p fibs_rec(2)
+p fibs_rec(8)
