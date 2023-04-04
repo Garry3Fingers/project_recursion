@@ -20,15 +20,10 @@ p fibs(2)
 p fibs(8)
 
 def fibs_rec(num, accum = [0, 1])
-  if num.zero?
-    accum.pop
-    accum
-  elsif num == 1
-    accum
-  else
-    accum << accum[-2] + accum[-1]
-    fibs_rec(num - 1, accum)
-  end
+  return [0] if num.zero?
+  return accum if num == 1
+
+  fibs_rec(num - 1, accum.push(accum[-2] + accum[-1]))
 end
 
 p fibs_rec(0)
